@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS OnlineFlashCard;
+USE OnlineFlashCard;
+
+CREATE TABLE User (
+    Gui VARCHAR(255) PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Mail VARCHAR(255) NOT NULL,
+    Password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE FlashCardDeck (
+    FlashCardGui VARCHAR(255) PRIMARY KEY,
+    Gui VARCHAR(255),
+    FOREIGN KEY (Gui) REFERENCES User(Gui)
+);
