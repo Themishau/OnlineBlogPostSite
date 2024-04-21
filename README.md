@@ -1,4 +1,4 @@
-# Anki Flashcards Online Project
+# Blog Posts Online Project
 
 This project aims to create an online platform for users to access and study Anki flashcards. It leverages Docker to manage MySQL and MongoDB instances, ensuring a consistent and isolated development environment.
 
@@ -33,19 +33,7 @@ Create a `.env` file in the root of your project directory. Add the MySQL root u
 MYSQL_ROOT_PASSWORD=
 MYSQL_USER= 
 MYSQL_PASSWORD= 
-MYSQL_DATABASE=OnlineFlashCards
-```
-
-### Step 3: Create the MySQL Initialization Script
-
-Create a file named `init-mysql.sql` in the same directory as your `docker-compose.yml`. This script will create the `OnlineFlashCard` database and the `User` and `FlashCardDeck` tables.
-
-```
-sql CREATE DATABASE IF NOT EXISTS OnlineFlashCard; USE OnlineFlashCard;
-
-CREATE TABLE User ( Gui VARCHAR(255) PRIMARY KEY, Name VARCHAR(255) NOT NULL, Mail VARCHAR(255) NOT NULL, Password VARCHAR(255) NOT NULL );
-
-CREATE TABLE FlashCardDeck ( FlashCardGui VARCHAR(255) PRIMARY KEY, Gui VARCHAR(255), FOREIGN KEY (Gui) REFERENCES User(Gui) );
+MYSQL_DATABASE=OnlineBlogPosts
 ```
 
 
@@ -61,10 +49,10 @@ This command will:
 
 - Pull the latest MySQL and MongoDB images from Docker Hub.
 - Initialize MySQL with the specified root user, database, and user credentials.
-- Run the `init-mysql.sql` script to create the `OnlineFlashCard` database and the `User` and `FlashCardDeck` tables.
+- Run the `init-mysql.sql` script to create the `OnlineBlogPosts` database and the `User` and `OnlineBlogPosts` tables.
 - Start the MySQL and MongoDB services in detached mode.
 
 ### Step 5: Verify the Setup
 
 - **MySQL**: You can connect to your MySQL database using any MySQL client with the credentials specified in the `.env` file.
-- **MongoDB**: You can connect to your MongoDB instance using a MongoDB client. The `FlashCardGui` will be the key for MongoDB records, but since MongoDB is schema-less, you'll need to ensure your application logic handles the `FlashCardGui` as the unique identifier for records.
+- **MongoDB**: You can connect to your MongoDB instance using a MongoDB client. The `PostGui` will be the key for MongoDB records, but since MongoDB is schema-less, you'll need to ensure your application logic handles the `PostGui` as the unique identifier for records.

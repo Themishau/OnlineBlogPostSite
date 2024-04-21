@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS OnlineFlashCard;
-USE OnlineFlashCard;
+CREATE DATABASE IF NOT EXISTS BlogPosts;
+USE BlogPosts;
 
 CREATE TABLE User (
     Gui VARCHAR(255) PRIMARY KEY,
@@ -8,8 +8,8 @@ CREATE TABLE User (
     Password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE FlashCardDeck (
-    FlashCardGui VARCHAR(255) PRIMARY KEY,
+CREATE TABLE BlogPost (
+    BlogPostGui VARCHAR(255) PRIMARY KEY,
     Gui VARCHAR(255),
     FOREIGN KEY (Gui) REFERENCES User(Gui)
 );
