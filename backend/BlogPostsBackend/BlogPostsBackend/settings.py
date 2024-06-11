@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'OnlineBlockPosts.apps.OnlineblockpostsConfig',
 ]
 
@@ -82,7 +83,7 @@ DATABASES = {
     },
     'posts': {
         'ENGINE': 'djongo',
-        'NAME': 'your-db-name',
+        'NAME': 'db',
     }
 }
 
@@ -128,5 +129,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+GRAPHENE = {
+    "SCHEMA": "onlineblockposts.schema.schema",
+}
