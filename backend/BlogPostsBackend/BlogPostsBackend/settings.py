@@ -137,3 +137,9 @@ MEDIA_URL = '/media/'
 GRAPHENE = {
     "SCHEMA": "onlineblockposts.schema.schema",
 }
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ]
+}
